@@ -78,3 +78,22 @@
 //   }
 // };
 // leapYearOrNot((n = 2024));
+
+// Que 7) Prime number:
+// =======================================================================================================================================================================================================
+const primeNoOrNotPrime = (n) => {
+  if (n == 2 || n == 3) {
+    console.log(`${n} is not a primeNo`);
+  } else {
+    for (let i = 3; i < n; i++) {
+      if (n % i == 0) {
+        console.log(`${n} is not a primeNo`);
+        break;
+      } else {
+        console.log(`${n} is a primeNo`);
+        break;
+      }
+    }
+  }
+};
+primeNoOrNotPrime((n = 24));
