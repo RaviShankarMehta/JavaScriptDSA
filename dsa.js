@@ -35,11 +35,22 @@
 
 // Que 3)Sum of numbers in a given range?
 // =======================================================================================================================================================================================================
-const sumOfNoInAGivenRang = (n, m) => {
-  let result = 0;
-  for (let i = n; i <= m; i++) {
-    result += i;
+// const sumOfNoInAGivenRang = (n, m) => {
+//   let result = 0;
+//   for (let i = n; i <= m; i++) {
+//     result += i;
+//   }
+//   console.log(result);
+// };
+// sumOfNoInAGivenRang((n = 2), (m = 8));
+
+// Que 3)Greatest of two numbers?
+// =======================================================================================================================================================================================================
+const greatestOfTwoNo = (n, m) => {
+  if (n > m) {
+    console.log(`${n} is the Greatest No`);
+  } else {
+    console.log(`${m} is the Greatest No`);
   }
-  console.log(result);
 };
-sumOfNoInAGivenRang((n = 2), (m = 8));
+greatestOfTwoNo((n = 2), (m = 8));
