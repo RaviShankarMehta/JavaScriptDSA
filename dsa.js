@@ -44,13 +44,26 @@
 // };
 // sumOfNoInAGivenRang((n = 2), (m = 8));
 
-// Que 3)Greatest of two numbers?
+// Que 4)Greatest of two numbers?
 // =======================================================================================================================================================================================================
-const greatestOfTwoNo = (n, m) => {
-  if (n > m) {
+// const greatestOfTwoNo = (n, m) => {
+//   if (n > m) {
+//     console.log(`${n} is the Greatest No`);
+//   } else {
+//     console.log(`${m} is the Greatest No`);
+//   }
+// };
+// greatestOfTwoNo((n = 2), (m = 8));
+
+// Que 4)Greatest of three numbers?
+// =======================================================================================================================================================================================================
+const greatestOfThreeNo = (n, m, o) => {
+  if (n > m && n > o) {
     console.log(`${n} is the Greatest No`);
-  } else {
+  } else if (m > n && m > o) {
     console.log(`${m} is the Greatest No`);
+  } else {
+    console.log(`${o} is the Greatest No`);
   }
 };
-greatestOfTwoNo((n = 2), (m = 8));
+greatestOfThreeNo((n = 2114441), (m = 3222225), (o = 12224));
