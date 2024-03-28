@@ -32,3 +32,14 @@
 //   console.log(result);
 // };
 // sumOfNNaturalNo(4);
+
+// Que 3)Sum of numbers in a given range?
+// =======================================================================================================================================================================================================
+const sumOfNoInAGivenRang = (n, m) => {
+  let result = 0;
+  for (let i = n; i <= m; i++) {
+    result += i;
+  }
+  console.log(result);
+};
+sumOfNoInAGivenRang((n = 2), (m = 8));
