@@ -55,15 +55,26 @@
 // };
 // greatestOfTwoNo((n = 2), (m = 8));
 
-// Que 4)Greatest of three numbers?
+// Que 5)Greatest of three numbers?
 // =======================================================================================================================================================================================================
-const greatestOfThreeNo = (n, m, o) => {
-  if (n > m && n > o) {
-    console.log(`${n} is the Greatest No`);
-  } else if (m > n && m > o) {
-    console.log(`${m} is the Greatest No`);
-  } else {
-    console.log(`${o} is the Greatest No`);
-  }
-};
-greatestOfThreeNo((n = 2114441), (m = 3222225), (o = 12224));
+// const greatestOfThreeNo = (n, m, o) => {
+//   if (n > m && n > o) {
+//     console.log(`${n} is the Greatest No`);
+//   } else if (m > n && m > o) {
+//     console.log(`${m} is the Greatest No`);
+//   } else {
+//     console.log(`${o} is the Greatest No`);
+//   }
+// };
+// greatestOfThreeNo((n = 2114441), (m = 3222225), (o = 12224));
+
+// Que 6) Leap year or not
+// =======================================================================================================================================================================================================
+// const leapYearOrNot = (n) => {
+//   if (n % 4 == 0) {
+//     console.log(`${n} is a leap`);
+//   } else {
+//     console.log(`${n} is not a leap`);
+//   }
+// };
+// leapYearOrNot((n = 2024));
