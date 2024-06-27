@@ -81,19 +81,35 @@
 
 // Que 7) Prime number:
 // =======================================================================================================================================================================================================
-const primeNoOrNotPrime = (n) => {
-  if (n == 2 || n == 3) {
-    console.log(`${n} is not a primeNo`);
-  } else {
-    for (let i = 3; i < n; i++) {
-      if (n % i == 0) {
-        console.log(`${n} is not a primeNo`);
+// const primeNoOrNotPrime = (n) => {
+//   if (n == 2 || n == 3) {
+//     console.log(`${n} is a primeNo`);
+//   } else {
+//     for (let i = 3; i < n; i++) {
+//       if (n % i == 0) {
+//         console.log(`${n} is not a primeNo`);
+//         break;
+//       } else {
+//         console.log(`${n} is a primeNo`);
+//         break;
+//       }
+//     }
+//   }
+// };
+// primeNoOrNotPrime((n = 24));
+// Que 8) Prime number within a given range:
+// =======================================================================================================================================================================================================
+const primeNumberWithInAGivenRange = (n, m) => {
+  for (let i = n; i <= m; i++) {
+    for (let j = i; j <= m; j++) {
+      if (m % j == 0) {
         break;
+        console.log(`${j} is a primeNo`);
       } else {
-        console.log(`${n} is a primeNo`);
+        console.log(`${j} is not a primeNo`);
         break;
       }
     }
   }
 };
-primeNoOrNotPrime((n = 24));
+primeNumberWithInAGivenRange((n = 4), (m = 10));
