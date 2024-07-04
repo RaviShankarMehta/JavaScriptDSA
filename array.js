@@ -33,18 +33,51 @@
 // };
 // console.log(findTheSecondSmallestElementInArray());
 
-const findTheSecondLargestElementInArray = () => {
+// const findTheSecondLargestElementInArray = () => {
+// let arr = [2, 12, 5, 32, 54, 1, 65, 22, 77];
+//   let largestElement = arr[0];
+//   let secondLargestElement = arr[1];
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > largestElement) {
+//       secondLargestElement = largestElement;
+//       largestElement = arr[i];
+//     } else if (arr[i] > secondLargestElement && arr[i] != largestElement) {
+//       secondLargestElement = arr[i];
+//     }
+//   }
+//   return secondLargestElement; // Return the last element of the sorted array
+// };
+// console.log(findTheSecondLargestElementInArray());
+
+// const insertElementInArrayInAGivenPosition = () => {
+//   let arr = [2, 12, 5, 32, 54, 1, 65, 22, 77];
+//   let insertElement = 22;
+//   let positionOfAnElement = 3;
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     // return arr[i];
+//     console.log(arr[i]);
+//     // if (arr[i] == positionOfAnElement) {
+//     //   arr.push(insertElement);
+//     //   console.log(arr);
+//     // }
+//   }
+// };
+// insertElementInArrayInAGivenPosition();
+// console.log(insertElementInArrayInAGivenPosition());
+
+const findTheNthSmallestNo = () => {
   let arr = [2, 12, 5, 32, 54, 1, 65, 22, 77];
-  let largestElement = arr[0];
-  let secondLargestElement = arr[1];
+  let smallestElement = arr[0];
+  let nthElement = 5;
   for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > largestElement) {
-      secondLargestElement = largestElement;
-      largestElement = arr[i];
-    } else if (arr[i] > secondLargestElement && arr[i] != largestElement) {
-      secondLargestElement = arr[i];
+    if (arr[i] < smallestElement) {
+      nthElement = smallestElement;
+      smallestElement = arr[i];
+    } else if (arr[i] < nthElement && arr[i] != smallestElement) {
+      nthElement = arr[i];
     }
   }
-  return secondLargestElement; // Return the last element of the sorted array
+  return nthElement; // Return the last element of the sorted array
 };
-console.log(findTheSecondLargestElementInArray());
+
+console.log(findTheNthSmallestNo());
