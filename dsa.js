@@ -149,3 +149,16 @@
 //   console.log(sum);
 // };
 // sumOfDigitOfANumber((n = 1234));
+
+// Reverse of a number
+// ====================================================================================================
+const reverseOfNumber = (n) => {
+  let m = n.toString();
+  let revNum = "";
+  for (let i = m.length - 1; i >= 0; i--) {
+    revNum = revNum + m[i];
+  }
+  console.log(revNum);
+};
+
+reverseOfNumber((n = 23164));
