@@ -150,15 +150,33 @@
 // };
 // sumOfDigitOfANumber((n = 1234));
 
-// Reverse of a number
-// ====================================================================================================
-const reverseOfNumber = (n) => {
-  let m = n.toString();
-  let revNum = "";
-  for (let i = m.length - 1; i >= 0; i--) {
-    revNum = revNum + m[i];
-  }
-  console.log(revNum);
-};
+// // Reverse of a number
+// // ====================================================================================================
+// const reverseOfNumber = (n) => {
+//   let m = n.toString();
+//   let revNum = "";
+// for (let i = m.length - 1; i >= 0; i--) {
+//   revNum = revNum + m[i];
+// }
+//   console.log(revNum);
+// };
 
-reverseOfNumber((n = 23164));
+// reverseOfNumber((n = 23164));
+
+// // Palindrome number
+// // ====================================================================================================
+const palindromeNumber = (n) => {
+  let tempNum = n.toString();
+  let j = tempNum.length - 1;
+  for (let i = 0; i < tempNum.length / 2; i++) {
+    console.log(tempNum[i]);
+    if (tempNum[i] != tempNum[j]) {
+      console.log(`The given no ${n} in not a palindrome Number`);
+      return false;
+    }
+    j--;
+  }
+  console.log(`The given no ${n} in a palindrome Number`);
+  return true;
+};
+palindromeNumber((n = 1234464321));
