@@ -183,9 +183,7 @@
 // // ====================================================================================================
 const palindromeNumber = (n) => {
   let tempNum = n.toString();
-
   let rev = tempNum.split("").reverse().join("");
-
   if (rev == tempNum) {
     console.log(`The given no ${n} in a palindrome Number`);
     return true;
