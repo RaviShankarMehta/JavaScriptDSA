@@ -165,18 +165,32 @@
 
 // // Palindrome number
 // // ====================================================================================================
+// const palindromeNumber = (n) => {
+//   let tempNum = n.toString();
+//   let j = tempNum.length - 1;
+//   for (let i = 0; i < tempNum.length / 2; i++) {
+//     console.log(tempNum[i]);
+//     if (tempNum[i] != tempNum[j]) {
+//       console.log(`The given no ${n} in not a palindrome Number`);
+//       return false;
+//     }
+//     j--;
+//   }
+// console.log(`The given no ${n} in a palindrome Number`);
+//   return true;
+// };
+// palindromeNumber((n = 1234464321));
+// // ====================================================================================================
 const palindromeNumber = (n) => {
   let tempNum = n.toString();
-  let j = tempNum.length - 1;
-  for (let i = 0; i < tempNum.length / 2; i++) {
-    console.log(tempNum[i]);
-    if (tempNum[i] != tempNum[j]) {
-      console.log(`The given no ${n} in not a palindrome Number`);
-      return false;
-    }
-    j--;
+
+  let rev = tempNum.split("").reverse().join("");
+
+  if (rev == tempNum) {
+    console.log(`The given no ${n} in a palindrome Number`);
+    return true;
   }
-  console.log(`The given no ${n} in a palindrome Number`);
-  return true;
+  console.log(`The given no ${n} in not a palindrome Number`);
+  return false;
 };
-palindromeNumber((n = 1234464321));
+palindromeNumber((n = 123444321));
