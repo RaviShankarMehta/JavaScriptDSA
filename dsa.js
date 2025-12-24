@@ -181,7 +181,21 @@
 // };
 // palindromeNumber((n = 1234464321));
 // // ====================================================================================================
-const palindromeNumber = (n) => {
+// const palindromeNumber = (n) => {
+//   let tempNum = n.toString();
+//   let rev = tempNum.split("").reverse().join("");
+//   if (rev == tempNum) {
+//     console.log(`The given no ${n} in a palindrome Number`);
+//     return true;
+//   }
+//   console.log(`The given no ${n} in not a palindrome Number`);
+//   return false;
+// };
+// palindromeNumber((n = 123444321));
+
+// Armstrong Number
+// // ====================================================================================================
+const armstrongNumber = (n) => {
   let tempNum = n.toString();
   let rev = tempNum.split("").reverse().join("");
   if (rev == tempNum) {
@@ -191,4 +205,4 @@ const palindromeNumber = (n) => {
   console.log(`The given no ${n} in not a palindrome Number`);
   return false;
 };
-palindromeNumber((n = 123444321));
+armstrongNumber((n = 123444321));

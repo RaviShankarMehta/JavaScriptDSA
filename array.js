@@ -65,19 +65,46 @@
 // insertElementInArrayInAGivenPosition();
 // console.log(insertElementInArrayInAGivenPosition());
 
-const findTheNthSmallestNo = () => {
-  let arr = [2, 12, 5, 32, 54, 1, 65, 22, 77];
-  let smallestElement = arr[0];
-  let nthElement = 5;
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < smallestElement) {
-      nthElement = smallestElement;
-      smallestElement = arr[i];
-    } else if (arr[i] < nthElement && arr[i] != smallestElement) {
-      nthElement = arr[i];
-    }
-  }
-  return nthElement; // Return the last element of the sorted array
-};
+// const findTheNthSmallestNo = () => {
+//   let arr = [2, 12, 5, 32, 54, 1, 65, 22, 77];
+//   let smallestElement = arr[0];
+//   let nthElement = 5;
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] < smallestElement) {
+//       nthElement = smallestElement;
+//       smallestElement = arr[i];
+//     } else if (arr[i] < nthElement && arr[i] != smallestElement) {
+//       nthElement = arr[i];
+//     }
+//   }
+//   return nthElement; // Return the last element of the sorted array
+// };
 
-console.log(findTheNthSmallestNo());
+// console.log(findTheNthSmallestNo());
+
+// ============================================================================================
+// Basic Array Operations
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Access
+// console.log(arr[0]);
+
+//Add Element
+arr.push(11);
+arr.unshift(0);
+console.log(arr);
+
+//Remove
+arr.pop();
+arr.shift();
+console.log(arr);
+
+//length
+console.log(arr.length);
+
+//Iterate
+arr.forEach((element) => {
+  console.log(element);
+});
+
+//Example 1: Find Max Element
