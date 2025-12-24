@@ -84,27 +84,37 @@
 
 // ============================================================================================
 // Basic Array Operations
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Access
 // console.log(arr[0]);
 
 //Add Element
-arr.push(11);
-arr.unshift(0);
-console.log(arr);
+// arr.push(11);
+// arr.unshift(0);
+// console.log(arr);
 
-//Remove
-arr.pop();
-arr.shift();
-console.log(arr);
+// //Remove
+// arr.pop();
+// arr.shift();
+// console.log(arr);
 
-//length
-console.log(arr.length);
+// //length
+// console.log(arr.length);
 
-//Iterate
-arr.forEach((element) => {
-  console.log(element);
-});
+// //Iterate
+// arr.forEach((element) => {
+//   console.log(element);
+// });
 
 //Example 1: Find Max Element
+function findMax(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+console.log(findMax([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
