@@ -68,7 +68,8 @@ user = {}; // ❌ Error
 // 2. Function & Variable hoisting
 
 // 🔼 Hoisting in JavaScript
-// Hoisting is JavaScript’s behavior of moving declarations to the top of their scope during the memory creation phase (before code execution).
+// Hoisting is JavaScript’s behavior of moving declarations to the top of their scope during the memory creation phase
+// (before code execution).
 // ⚠️ Only declarations are hoisted, not initializations.
 // 1️⃣ Variable Hoisting
 // ✅ var Hoisting
@@ -306,8 +307,102 @@ function heavy() {
 // Exists	At declaration	At execution
 // Lifetime	Normal	Extended
 
+// ====================================================================================================================
 // 4. Callback Hell
+// Callback Hell (JavaScript)
+// 📌 Definition (Interview Answer)
+// Callback Hell is a situation where multiple nested callbacks make code hard to read, debug, and maintain.
+// It’s also called Pyramid of Doom 🧱.
+// 1️⃣ Simple Callback Example
+function getData(callback) {
+  setTimeout(() => {
+    callback("Data received");
+  }, 1000);
+}
+getData((result) => {
+  console.log(result);
+});
+// ✔️ Works fine for one callback.
+// 2️⃣ Callback Hell Example ❌
+getUser(userId, function (user) {
+  getOrders(user.id, function (orders) {
+    getOrderDetails(orders[0], function (details) {
+      processPayment(details, function (payment) {
+        sendEmail(payment, function () {
+          console.log("Done!");
+        });
+      });
+    });
+  });
+});
 
+// 😵 Problems:Deep nesting
+// Hard to read
+// Error handling is messy
+// Difficult to scale
+// 3️⃣ Why Callback Hell is Bad ❌
+// ❌ Poor readability
+// ❌ Hard error handling
+// ❌ Tight coupling
+// ❌ Debugging nightmare
+// ❌ Code duplication
+
+// 4️⃣ Solving Callback Hell with Promises ✅
+// Refactored Using Promises
+getUser(userId)
+  .then((user) => getOrders(user.id))
+  .then((orders) => getOrderDetails(orders[0]))
+  .then((details) => processPayment(details))
+  .then((payment) => sendEmail(payment))
+  .then(() => console.log("Done"))
+  .catch((err) => console.error(err));
+
+// ✔️ Flat & readable
+// ✔️ Centralized error handling
+// 5️⃣ Best Solution: async / await 🚀
+async function handleOrder(userId) {
+  try {
+    const user = await getUser(userId);
+    const orders = await getOrders(user.id);
+    const details = await getOrderDetails(orders[0]);
+    const payment = await processPayment(details);
+    await sendEmail(payment);
+
+    console.log("Done");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// ✔️ Looks synchronous
+// ✔️ Easy to debug
+// ✔️ Interview favorite ⭐
+
+// 6️⃣ Real-World Example (Node.js / API Calls)
+// ❌ Callback Hell
+fs.readFile("a.txt", "utf8", (err, data1) => {
+  fs.readFile("b.txt", "utf8", (err, data2) => {
+    fs.readFile("c.txt", "utf8", (err, data3) => {
+      console.log(data1, data2, data3);
+    });
+  });
+});
+
+// ✅ Using Promises
+Promise.all([
+  fs.promises.readFile("a.txt", "utf8"),
+  fs.promises.readFile("b.txt", "utf8"),
+  fs.promises.readFile("c.txt", "utf8"),
+]).then(console.log);
+
+// 7️⃣ Callback Hell vs Promises
+// Feature	Callback Hell	Promises
+// Readability	❌ Poor	✅ Good
+// Error handling	❌ Messy	✅ Centralized
+// Maintainability	❌ Hard	✅ Easy
+// Nesting	❌ Deep	✅ Flat
+
+// =========================================================================================================================
 // 5. Asynchronous vs Synchronous (How to implement both in JS)
 
 // 6. 'this' variable in Javascript
