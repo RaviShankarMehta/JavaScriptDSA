@@ -85,7 +85,7 @@ a = 10;
 
 // ❌ let & const Hoisting (TDZ)
 console.log(b);
-let b = 20;
+// let b = 20;
 // ❌ Error:
 // ReferenceError: Cannot access 'b' before initialization
 
@@ -186,7 +186,125 @@ function handleClick() {
 // Function expressions & arrow functions are not hoisted
 // Hoisting happens during memory creation phase
 
+// ===============================================================================================================
 // 3. Closures
+// Closures in JavaScript
+// 📌 Definition
+// A closure is created when a function remembers and continues to access variables from its outer (lexical)
+// scope even after the outer function has finished executing.
+// *************************************************************************************************************
+// 1️⃣ Simple Closure Example
+function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log(count);
+  }
+
+  return inner;
+}
+
+const fn = outer();
+fn(); // 1
+fn(); // 2
+fn(); // 3
+
+// 🧠 What’s happening?
+// outer() executes and returns inner
+// inner remembers count
+// count is not destroyed → closure
+// ****************************************************************************************************************
+// 2️⃣ Lexical Scope (Key Concept)
+function parent() {
+  let a = 10;
+
+  function child() {
+    console.log(a);
+  }
+
+  child();
+}
+parent();
+// ✔️ child can access a because of lexical scoping
+// ****************************************************************************************************************
+// 3️⃣ Closure with setTimeout (🔥 Interview Favorite)
+// ❌ Wrong (var)
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output:4 4 4
+
+// ✅ Correct (let)
+for (let i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output:1 2 3
+// ✅ Also Correct (Using Closure)
+for (var i = 1; i <= 3; i++) {
+  (function (x) {
+    setTimeout(() => console.log(x), 1000);
+  })(i);
+}
+// ************************************************************************************************************
+// 4️⃣ Data Privacy Using Closures
+function createAccount() {
+  let balance = 0;
+
+  return {
+    deposit(amount) {
+      balance += amount;
+    },
+    getBalance() {
+      return balance;
+    },
+  };
+}
+const acc = createAccount();
+acc.deposit(1000);
+console.log(acc.getBalance()); // 1000
+// 👉 balance is private (cannot be accessed directly)
+// 5️⃣ Closure in React (Very Important 🧠)
+// ❌ Stale Closure Problem
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  function increment() {
+    setTimeout(() => {
+      setCount(count + 1); // ❌ stale value
+    }, 1000);
+  }
+  return <button onClick={increment}>+</button>;
+}
+// ✅ Correct (Functional Update)
+setTimeout(() => {
+  setCount((prev) => prev + 1);
+}, 1000);
+// 👉 Fixes stale closure
+// 6️⃣ Closure with Event Handlers
+function attachHandler() {
+  let message = "Hello";
+
+  document.getElementById("btn").onclick = function () {
+    alert(message);
+  };
+}
+// }✔️ message is remembered even after attachHandler finishes
+// 7️⃣ Common Interview Traps ⚠️
+// ❓ Will closure cause memory leak?
+// ✔️ Yes, if not handled properly
+function heavy() {
+  let largeData = new Array(1000000).fill("*");
+
+  return function () {
+    console.log(largeData.length);
+  };
+}
+// 👉 Solution: cleanup references when not needed
+// 8️⃣ Closures vs Scope (Short Answer)
+// Feature	Scope	Closure
+// What	Variable access rules	Memory of outer variables
+// Exists	At declaration	At execution
+// Lifetime	Normal	Extended
 
 // 4. Callback Hell
 
